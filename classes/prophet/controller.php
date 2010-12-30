@@ -40,7 +40,7 @@ class Prophet_Controller extends Kohana_Controller {
 			
 			foreach (array('directory', 'controller', 'action') as $_part)
 			{
-				if (isset($this->request->{$_part}))
+				if ( ! empty($this->request->{$_part}))
 				{
 					$view_parts[] = $this->request->{$_part};
 				}
