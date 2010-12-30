@@ -33,8 +33,8 @@ class Prophet_Controller extends Kohana_Controller {
 	 */
 	public function before()
 	{
-		// If not a viewless action
-		if ( ! in_array($this->request->action, $this->viewless))
+		// If views not turned off and not a viewless action
+		if ($this->view !== FALSE && ! in_array($this->request->action, $this->viewless))
 		{
 			$view_parts = array();
 			
@@ -63,7 +63,7 @@ class Prophet_Controller extends Kohana_Controller {
 	 */
 	public function after()
 	{
-		if ($this->view !== NULL)
+		if ($this->view)
 		{
 			$this->request->response = $this->view;
 		}
