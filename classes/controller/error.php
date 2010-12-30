@@ -1,0 +1,1 @@
+<?php defined('SYSPATH') or die('No direct script access.');class Controller_Error extends Prophet_Controller_Error {}
