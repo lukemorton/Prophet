@@ -17,6 +17,11 @@ class Prophet_Controller extends Kohana_Controller {
 	 * @var  string  The view class
 	 */
 	public $view_class = 'View';
+    
+	/**
+	 * @var  string  Holds a view exception
+	 */
+	public $view_exception = NULL;
 	
 	/**
 	 * @var  array  Define viewless actions here
@@ -49,8 +54,15 @@ class Prophet_Controller extends Kohana_Controller {
 			// Build the view location
 			$view_location = implode('/', $view_parts);
 			
-			// Load the view using chosen class
-			$this->view = call_user_func($this->view_class.'::factory', $view_location);
+            try
+            {
+                // Load the view using chosen class
+                $this->view = call_user_func($this->view_class.'::factory', $view_location);
+            }
+            catch (Kohana_View_Exception $e)
+            {
+                $this->view_exception = $e;
+            }
 		}
 		
 		return parent::before();
@@ -63,6 +75,12 @@ class Prophet_Controller extends Kohana_Controller {
 	 */
 	public function after()
 	{
+        if ($this->view_exception)
+        {
+            // Re throw error if got this far
+            throw $this->view_exception;
+        }
+    
 		if ($this->view)
 		{
 			$this->request->response = $this->view;

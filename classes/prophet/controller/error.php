@@ -4,10 +4,10 @@ class Prophet_Controller_Error extends Controller {
     
     public function before()
     {
-        // External requests default to 500
+        // External requests default to 404
         if (Request::$instance === Request::$current)
         {
-            $this->request->action = 500;
+            $this->request->action = 404;
         }
         
         return parent::before();
@@ -15,12 +15,12 @@ class Prophet_Controller_Error extends Controller {
     
     public function action_404()
     {
-        $this->request->code = 404;
+        $this->request->status = 404;
     }
     
     public function action_500()
     {
-        $this->request->code = 500;
+        $this->request->status = 500;
     }
     
 }
