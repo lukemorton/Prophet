@@ -7,7 +7,7 @@ class Prophet_Controller_Error extends Controller {
         // External requests default to 404
         if ($this->request->is_initial())
         {
-            $this->request->action = 404;
+            $this->request->action(404);
         }
         
         return parent::before();
@@ -15,12 +15,12 @@ class Prophet_Controller_Error extends Controller {
     
     public function action_404()
     {
-        $this->request->status = 404;
+        $this->request->status(404);
     }
     
     public function action_500()
     {
-        $this->request->status = 500;
+        $this->request->status(500);
     }
     
 }
