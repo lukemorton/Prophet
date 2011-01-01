@@ -1,8 +1,14 @@
 # Prophet for Kohana
 
 What can Prophet do for you?
-- Automatic view loading (Kostache, Kohana Views, etc.)
-- Error handling 404, 500 (inspired by Errorist)
+*   Automatic view loading (Kostache, Kohana Views, etc.)
+*   Error handling 404, 500 (inspired by Errorist)
+
+## Requirements
+*   PHP 5.2 + (5.3 recommended),
+*   Kohana 3.0.x or Kohana 3.1.x, only updates will be provided
+    for the 3.1.x branch,
+*   Adeptness in prophecy.
 
 ## Usage
 
