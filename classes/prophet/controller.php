@@ -34,15 +34,17 @@ class Prophet_Controller extends Kohana_Controller {
     {
         if ($name === 'view')
         {
-            if ($this->_view === NULL && ! in_array($this->request->action, $this->viewless))
+            if ($this->_view === NULL && ! in_array($this->request->action(), $this->viewless))
             {
                 $view_parts = array();
                 
                 foreach (array('directory', 'controller', 'action') as $_part)
                 {
-                    if ( ! empty($this->request->{$_part}))
+                    $part = call_user_func(array($this->request, $_part));
+                    
+                    if ( ! empty($part))
                     {
-                        $view_parts[] = $this->request->{$_part};
+                        $view_parts[] = $part;
                     }
                 }
                 
@@ -77,7 +79,7 @@ class Prophet_Controller extends Kohana_Controller {
 	{
 		if ($this->view)
 		{
-			$this->request->response = $this->view;
+			$this->response->body($this->view);
 		}
 		
 		return parent::after();

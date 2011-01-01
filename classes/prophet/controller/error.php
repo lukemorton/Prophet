@@ -5,7 +5,7 @@ class Prophet_Controller_Error extends Controller {
     public function before()
     {
         // External requests default to 404
-        if (Request::$instance === Request::$current)
+        if ($this->request->is_initial())
         {
             $this->request->action = 404;
         }

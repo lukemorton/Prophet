@@ -6,11 +6,11 @@ class Prophet {
     {
         if (Kohana::$environment === Kohana::DEVELOPMENT)
         {
-            Kohana_Core::exception_handler($e);
+            Kohana_Exception::handler($e);
         }
         
         // It's a nice time to log :)
-        Kohana::$log->add(Kohana::ERROR, Kohana::exception_text($e));
+        Kohana::$log->add(Kohana_Log::ERROR, Kohana_Exception::text($e));
         
         if ( ! defined('SUPPRESS_REQUEST'))
         { 
@@ -22,8 +22,8 @@ class Prophet {
                 'message' => rawurlencode($e->getMessage()),
             );
             
-            // Override status if HTTP_Response_Exception thrown
-            if ($e instanceof HTTP_Response_Exception)
+            // Override status if HTTP_Exception thrown
+            if ($e instanceof HTTP_Exception)
             {
                 $request['action'] = $e->getCode();
             }
