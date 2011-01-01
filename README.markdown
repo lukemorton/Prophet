@@ -1,8 +1,8 @@
 # Prophet for Kohana
 
 What can Prophet do for you?
--   Automatic view loading (Kostache, Kohana Views, etc.)
--   Error handling 404, 500 (inspired by Errorist)
+- Automatic view loading (Kostache, Kohana Views, etc.)
+- Error handling 404, 500 (inspired by Errorist)
 
 ## Usage
 
