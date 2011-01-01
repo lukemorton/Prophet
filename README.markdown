@@ -34,14 +34,112 @@ specified.
 In order to use Kostache instead of the default Kohana views
 simply define the class in your controller:
 
-    class Controller_Blog extends Controller {
+    class Controller extends Prophet_Controller {
         
         public $view_class = 'Kostache';
         
-        public function action_index() {}
-        
     }
     
-Now "APPPATH/classes/view/blog/index.php" will be used by 
-Kostache along with the corresponding template found in
-"APPPATH/templates/blog/index.mustache".
+Pretty self explanatory hey?
+
+### Viewless actions
+
+You can define individual actions that do not need a view to
+save resources and the environment if you're that way
+inclined. Take an example:
+
+    <?php defined('SYSPATH') or die('No direct script access.');
+
+    /**
+     * Example controller using the view guessing marlarkey
+     */
+    class Controller_Blog extends Controller {
+
+        /**
+         * @var
+         * @see  Controller::$viewless
+         */
+        public $viewless = array('create');
+
+        /**
+         * For this action the view "blog/index" will have been already loaded.
+         *
+         * @return  void
+         */
+        public function action_index()
+        {
+            // Set some $_GET data to view
+            $this->view->set(Arr::extract($_GET, array('page', 'order_by')));
+        }
+
+        /**
+         * This action loads the "blog/add" view and nothing else
+         *
+         * @return  void
+         */
+        public function action_add()
+        {
+            // No need to do anything
+        }
+
+        /**
+         * This action creates the blog post, it doesn't need a view.
+         *
+         * @return  void
+         */
+        public function action_create()
+        {
+            $post = Model::factory('post', $_POST);
+
+            // Try and create
+            try
+            {
+                $post->create();
+            }
+            catch (Kohana_Validate_Exception $e)
+            {
+                // We set the errors to session here before we redirect.
+                Session::instance()->set('errors', $e->array->errors());
+            }
+
+            // Redirect back to index action
+            $this->request->redirect($this->request->uri(array('action' => 'add')));
+        }
+
+    }
+    
+### Disabling views for an entire controller
+
+You can also disable view rendering for an entire controller if
+you need to.
+
+    class Controller_Blog extends Controller {
+    
+        /**
+         * Disable views :D
+         * @var  mixed
+         * @see  Prophet_Controller::$_view
+         */
+        public $view = FALSE;
+    
+    }
+    
+## Error Handling
+
+When an action or controller cannot be found
+Controller_Error::action_404 will be served instead. You can
+customise the behaviour of this action by extending
+Prophet_Controller_Error.
+
+All other errors will be served as 500 and therefore
+Controller_Error::action_500 will be used to serve a response.
+
+You can also throw a Http_Exception for any status code,
+although only 404 and 500 errors have an action defined.
+
+You don't have to extend Prophet_Controller_Error to customise
+the error response however. You can simply make your own custom
+view. "views/error/404.php" and "views/error/500.php" will
+be loaded by default. You can replace these files in your
+application if you wish to without needing to update any
+controllers.
