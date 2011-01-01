@@ -4,8 +4,6 @@ class Prophet {
     
     public static function exception_handler(Exception $e)
     {
-        //Kohana::$environment = Kohana::PRODUCTION;
-        
         if (Kohana::$environment === Kohana::DEVELOPMENT)
         {
             Kohana_Core::exception_handler($e);
@@ -29,9 +27,6 @@ class Prophet {
             {
                 $request['action'] = $e->getCode();
             }
-            
-            var_dump(Route::get('prophet_error')->uri($request));
-            exit;
             
             echo Request::factory(Route::get('prophet_error')->uri($request))
                 ->execute()
