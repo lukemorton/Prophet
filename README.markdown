@@ -5,21 +5,19 @@ What can Prophet do for you?
 *   Automatic view loading (Kostache, Kohana Views, etc.)
 *   Error handling 404, 500 (inspired by Errorist)
 
-## Current Version: v0.1.1
+## Current Version
 
 The current version is v0.1.1. This release should be considered
 fairly stable but not stable enough for a v1 release just yet.
-Take that how you want :)
 
 Download or clone the v0.1.1 tag of this repo into your modules 
-folder to use with the Kohana 3.1.x series.
+folder.
 
 If you require Kohana 3.0.x compatibility you will need to
-download the alternative tag **v0.1-compat-3.0.x**. That is the
+download the alternative tag *v0.1-compat-3.0.x*. That is the
 first and last v3.0.x compatible release.
 
 ## Requirements
-
 *   PHP 5.2 + (5.3 recommended),
 *   Kohana 3.0.x or Kohana 3.1.x, only updates will be provided
     for the 3.1.x branch,
@@ -40,14 +38,13 @@ this example:
     }
 
 Now blog/index will automatically render the view found in 
-"views/blog/index.php" without anything else being 
+"APPPATH/views/blog/index.php" without anything else being 
 specified.
 
 ### Using Kostache
 
 In order to use Kostache instead of the default Kohana views
-simply define the class in your controller or in the
-controller.php file like so:
+simply define the class in your controller:
 
     class Controller extends Prophet_Controller {
         
@@ -72,7 +69,7 @@ inclined. Take an example:
 
         /**
          * @var
-         * @see  Prophet_Controller::$viewless
+         * @see  Controller::$viewless
          */
         public $viewless = array('create');
 

@@ -16,7 +16,7 @@ class Prophet {
         { 
             $request = array(
                 // Get status from current request
-                'action'  => Request::$current->status(),
+                'action'  => Request::$current->status,
                 
                 // If exception has a message this can be passed on
                 'message' => rawurlencode($e->getMessage()),
