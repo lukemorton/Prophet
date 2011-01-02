@@ -2,8 +2,12 @@
 
 What can Prophet do for you?
 
-*   Automatic view loading (Kostache, Kohana Views, etc.)
-*   Error handling 404, 500 (inspired by Errorist)
+*   Automatic view loading ([Kostache][], [Kohana Views][], etc.)
+*   Error handling 404, 500 (inspired by [Errorist][])
+
+[Kostache]: https://github.com/zombor/KOstache
+[Kohana Views]: http://kohanaframework.org/guide/kohana/mvc/views
+[Errorist]: https://github.com/ThePixelDeveloper/kohana-bits-and-bobs/tree/master/modules/errorist
 
 ## Current Version: v0.1.1
 
@@ -39,14 +43,14 @@ this example:
         
     }
 
-Now blog/index will automatically render the view found in 
-"views/blog/index.php" without anything else being 
+Now Controller_Blog::action_index will automatically render the
+view found in "views/blog/index.php" without anything else being
 specified.
 
 ### Using Kostache
 
 In order to use Kostache instead of the default Kohana views
-simply define the class in your controller or in the
+simply define the class in your controller or in your own
 controller.php file like so:
 
     class Controller extends Prophet_Controller {
@@ -158,3 +162,7 @@ view. "views/error/404.php" and "views/error/500.php" will
 be loaded by default. You can replace these files in your
 application if you wish to without needing to update any
 controllers.
+
+## License
+
+Prophet is MIT licensed. That is all :)
