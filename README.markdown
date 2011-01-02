@@ -5,6 +5,18 @@ What can Prophet do for you?
 *   Automatic view loading (Kostache, Kohana Views, etc.)
 *   Error handling 404, 500 (inspired by Errorist)
 
+## Current Version
+
+The current version is v0.1.1. This release should be considered
+fairly stable but not stable enough for a v1 release just yet.
+
+Download or clone the v0.1.1 tag of this repo into your modules 
+folder.
+
+If you require Kohana 3.0.x compatibility you will need to
+download the alternative tag *v0.1-compat-3.0.x*. That is the
+first and last v3.0.x compatible release.
+
 ## Requirements
 *   PHP 5.2 + (5.3 recommended),
 *   Kohana 3.0.x or Kohana 3.1.x, only updates will be provided
