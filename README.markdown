@@ -5,13 +5,13 @@ What can Prophet do for you?
 *   Automatic view loading (Kostache, Kohana Views, etc.)
 *   Error handling 404, 500 (inspired by Errorist)
 
-## Current Version: v0.1
+## Current Version: v0.1.1
 
-The current version is v0.1. This release should be considered
+The current version is v0.1.1. This release should be considered
 fairly stable but not stable enough for a v1 release just yet.
 Take that how you want :)
 
-Download or clone the v0.1 tag of this repo into your modules 
+Download or clone the v0.1.1 tag of this repo into your modules 
 folder to use with the Kohana 3.1.x series.
 
 If you require Kohana 3.0.x compatibility you will need to
