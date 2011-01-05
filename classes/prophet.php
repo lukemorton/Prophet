@@ -13,10 +13,10 @@ class Prophet {
         Kohana::$log->add(Kohana_Log::ERROR, Kohana_Exception::text($e));
         
         if ( ! defined('SUPPRESS_REQUEST'))
-        { 
+        {
             $request = array(
                 // Get status from current request
-                'action'  => Request::$current->status(),
+                'action'  => Request::current()->status(),
                 
                 // If exception has a message this can be passed on
                 'message' => rawurlencode($e->getMessage()),
