@@ -15,12 +15,12 @@ class Prophet_Controller_Error extends Controller {
     
     public function action_404()
     {
-        $this->request->status(404);
+        $this->response->status(404);
     }
     
     public function action_500()
     {
-        $this->request->status(500);
+        $this->response->status(500);
     }
     
 }
