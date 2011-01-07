@@ -55,7 +55,7 @@ controller.php file like so:
 
     class Controller extends Prophet_Controller {
         
-        public $view_class = 'Kostache';
+        protected $_view_class = 'Kostache';
         
     }
     
@@ -76,9 +76,9 @@ inclined. Take an example:
 
         /**
          * @var
-         * @see  Prophet_Controller::$viewless
+         * @see  Prophet_Controller::$_viewless
          */
-        public $viewless = array('create');
+        protected $_viewless = array('create');
 
         /**
          * For this action the view "blog/index" will have been already loaded.
@@ -139,7 +139,7 @@ you need to.
          * @var  mixed
          * @see  Prophet_Controller::$_view
          */
-        public $view = FALSE;
+        protected $_view = FALSE;
     
     }
     

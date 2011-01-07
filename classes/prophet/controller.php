@@ -11,12 +11,12 @@ class Prophet_Controller extends Kohana_Controller {
 	/**
 	 * @var  string  The view class
 	 */
-	public $view_class = 'View';
+	protected $_view_class = 'View';
     
 	/**
 	 * @var  array  Define viewless actions here
 	 */
-	public $viewless = array();
+	protected $_viewless = array();
     
 	/**
 	 * @var  mixed  Holds the current view instance
@@ -34,7 +34,7 @@ class Prophet_Controller extends Kohana_Controller {
     {
         if ($name === 'view')
         {
-            if ($this->_view === NULL && ! in_array($this->request->action(), $this->viewless))
+            if ($this->_view === NULL && ! in_array($this->request->action(), $this->_viewless))
             {
                 $view_parts = array();
                 
@@ -52,7 +52,7 @@ class Prophet_Controller extends Kohana_Controller {
                 $view_location = implode('/', $view_parts);
                 
                 // Load the view using chosen class
-                $this->_view = call_user_func($this->view_class.'::factory', $view_location);
+                $this->_view = call_user_func($this->_view_class.'::factory', $view_location);
             }
             
             return $this->_view;
