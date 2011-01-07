@@ -10,11 +10,13 @@ class Prophet_Controller extends Kohana_Controller {
 	
 	/**
 	 * @var  string  The view class
+     * @protected
 	 */
 	protected $_view_class = 'View';
     
 	/**
 	 * @var  array  Define viewless actions here
+     * @protected
 	 */
 	protected $_viewless = array();
     
@@ -61,6 +63,10 @@ class Prophet_Controller extends Kohana_Controller {
     
     /**
      * Magic set method
+     *
+     * @param   string  Name
+     * @param   mixed   Value
+     * @return  void
      */
     public function __set($name, $value)
     {
@@ -73,7 +79,7 @@ class Prophet_Controller extends Kohana_Controller {
 	/**
 	 * The after method turns the view into a response
 	 *
-	 * @return  void
+	 * @return  Kohana_Controller::after
 	 */
 	public function after()
 	{
