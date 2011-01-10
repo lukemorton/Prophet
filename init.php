@@ -18,20 +18,3 @@ Route::set('prophet_catchall', '<catchall>', array('catchall' => '.*'))
         'controller' => 'error',
         'action'     => '404',
     ));
-
-/**
- * Helper function for set/get once data
- *
- * @param   string  Name of data
- * @param   mixed   Data to be stored
- * @return  mixed   Returns data if no value set
- */
-function Flash($name, $value = NULL)
-{
-    if ($value === NULL)
-    {
-        return Session::instance()->get_once($name);
-    }
-    
-    Session::instance()->set($name, $value);
-}
