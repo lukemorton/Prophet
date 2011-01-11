@@ -9,14 +9,9 @@ What can Prophet do for you?
 [Kohana Views]: http://kohanaframework.org/guide/kohana/mvc/views
 [Errorist]: https://github.com/ThePixelDeveloper/kohana-bits-and-bobs/tree/master/modules/errorist
 
-## Current Version: v0.1.1
+## Current Version: v0.1.2
 
-The current version is v0.1.1. This release should be considered
-fairly stable but not stable enough for a v1 release just yet.
-Take that how you want :)
-
-Download or clone the v0.1.1 tag of this repo into your modules 
-folder to use with the Kohana 3.1.x series.
+[Download v0.1.2](https://github.com/DrPheltRight/Prophet/tree/v0.1.2)
 
 If you require Kohana 3.0.x compatibility you will need to
 download the alternative tag **v0.1-compat-3.0.x**. That is the
