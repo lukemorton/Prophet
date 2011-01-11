@@ -3,7 +3,6 @@
 What can Prophet do for you?
 
 *   Automatic view loading ([Kostache][], [Kohana Views][], etc.)
-*   Error handling 404, 500 (inspired by [Errorist][])
 
 [Kostache]: https://github.com/zombor/KOstache
 [Kohana Views]: http://kohanaframework.org/guide/kohana/mvc/views
@@ -137,26 +136,6 @@ you need to.
         protected $_view = FALSE;
     
     }
-    
-## Error Handling
-
-When an action or controller cannot be found
-Controller_Error::action_404 will be served instead. You can
-customise the behaviour of this action by extending
-Prophet_Controller_Error.
-
-All other errors will be served as 500 and therefore
-Controller_Error::action_500 will be used to serve a response.
-
-You can also throw a Http_Exception for any status code,
-although only 404 and 500 errors have an action defined.
-
-You don't have to extend Prophet_Controller_Error to customise
-the error response however. You can simply make your own custom
-view. "views/error/404.php" and "views/error/500.php" will
-be loaded by default. You can replace these files in your
-application if you wish to without needing to update any
-controllers.
 
 ## License
 
