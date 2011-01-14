@@ -62,21 +62,6 @@ class Prophet_Controller extends Kohana_Controller {
 	}
 	
 	/**
-	 * Magic set method
-	 *
-	 * @param   string  Name
-	 * @param   mixed   Value
-	 * @return  void
-	 */
-	public function __set($name, $value)
-	{
-		if ($name === 'view')
-		{
-			$this->_view = $value;
-		}
-	}
-	
-	/**
 	 * The after method turns the view into a response
 	 *
 	 * @return  Kohana_Controller::after
